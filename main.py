@@ -18,13 +18,12 @@ from __future__ import annotations
 
 import argparse
 import base64
-import json
 import os
 import sqlite3
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional
+from typing import Dict, Iterable, List
 
 import google.oauth2.credentials
 from google.auth.transport.requests import Request
@@ -32,21 +31,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-# ---------------------------------------------------------------------------
-# Domain model
-# ---------------------------------------------------------------------------
-class ArxivSpec:
-    def __init__(self) -> None:
-        self.DOI: str = ""
-        self.Date: datetime = datetime.now()
-        self.Title: str = ""
-        self.Authors: str = ""
-        self.Categories: str = ""
-        self.Comments: str = ""
-        self.MSCClass: str = ""
-        self.ACMClass: str = ""
-        self.Abstract: str = ""
-
+from .arxiv_spec import ArxivSpec
 
 # ---------------------------------------------------------------------------
 # Gmail API helpers
