@@ -1,0 +1,6 @@
+.cache
+.env
+.mypy_cache
+
+credentials.json
+token.json
